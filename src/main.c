@@ -18,6 +18,12 @@ int main(int argc, char **argv){
         printf("-h\t\tImprime la guia de ayuda\n");
         printf("-v\t\tMuestra como se van ejecutando varias partes del programa\n");
         printf("-o\t\tImprime los resultados en un archivo dado como argumento\n");
+        printf("Ejemplos de uso:\n");
+        printf("./programa -h\n");
+        printf("./programa archivo1.txt archivo2.txt\n")'
+        pritnf("./programa archivo1.txt -v archivo2.txt\n");
+        pritnf("./programa archivo1.txt -h archivo2.txt\n");
+        pritnf("./programa archivo1.txt -o salida.txt archivo2.txt\n");
         return 0;
       case 'v':
         vflag = 1;
