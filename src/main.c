@@ -1,4 +1,4 @@
-//#include "../lib/src/data.h"
+#include "../lib/src/data.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,6 +8,7 @@ int main(int argc, char **argv){
   int vflag = 0;
   char *ovalue = NULL;
   int c;
+  struct Alumno *alumnos;
 
   while ((c = getopt (argc, argv, "hvo:")) != -1)
     switch (c)
@@ -20,10 +21,10 @@ int main(int argc, char **argv){
         printf("-o\t\tImprime los resultados en un archivo dado como argumento\n");
         printf("Ejemplos de uso:\n");
         printf("./programa -h\n");
-        printf("./programa archivo1.txt archivo2.txt\n")'
-        pritnf("./programa archivo1.txt -v archivo2.txt\n");
-        pritnf("./programa archivo1.txt -h archivo2.txt\n");
-        pritnf("./programa archivo1.txt -o salida.txt archivo2.txt\n");
+        printf("./programa archivo1.txt archivo2.txt\n");
+        printf("./programa archivo1.txt -v archivo2.txt\n");
+        printf("./programa archivo1.txt -h archivo2.txt\n");
+        printf("./programa archivo1.txt -o salida.txt archivo2.txt\n");
         return 0;
       case 'v':
         vflag = 1;
@@ -40,7 +41,16 @@ int main(int argc, char **argv){
         return 1;
      }
 
-  for (int index = optind; index < argc; index++)
-    //read each file with arg[index]
+  for (int index = optind; index < argc; index++){
+    FILE *file;
+    char *line;
+    file = fopen(argv[index], "r");
+    if(file == NULL){
+    	printf("El archivo %s no existe o no se encontro.", argv[index]);
+    	return 1;
+    }
+    fscanf(file, "%s", &line);
+    
+  }
   return 0;
 }
