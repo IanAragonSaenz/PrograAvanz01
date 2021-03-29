@@ -7,8 +7,8 @@
 int main(int argc, char **argv){
   int vflag = 0;
   char *ovalue = NULL;
-  int c;
-  struct Alumno *alumnos;
+  int c, size = 10;
+  Alumno *alumnos = malloc(size * sizeof(*alumnos));
 
   while ((c = getopt (argc, argv, "hvo:")) != -1)
     switch (c)
@@ -49,13 +49,29 @@ int main(int argc, char **argv){
   for (int index = optind; index < argc; index++){
     FILE *file;
     char *line;
+    int i = 0;
+    
     file = fopen(argv[index], "r");
     if(file == NULL){
     	printf("El archivo %s no existe o no se encontro.", argv[index]);
     	return 1;
     }
-    fscanf(file, "%s", &line);
     
+    while(!feof(file)){
+      fscanf(file, "%s", &line);
+      
+      if(i >= size){
+      	size += 10;
+      	alumnos = (Alumno *)realloc(alumnos, (size * sizeof(Alumno)));
+      }
+      
+      if(index == optind){
+    	//readInfo(&alumnos[i], line);
+      } else {
+      	//readGrades(&alumnos[i], line);
+      }
+      i++;
+     }
   }
   return 0;
 }

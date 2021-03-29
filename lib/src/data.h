@@ -1,7 +1,7 @@
 #ifndef _DATA_H
 #define _DATA_H
 
-struct Alumno{
+typedef struct Alumno{
 	int id;
 	char *nombre;
 	char *carrera;
@@ -11,10 +11,10 @@ struct Alumno{
 	int B;
 	int C;
 	int D;
-};
+} Alumno;
 
-void readInfo(struct Alumno *alumno, char *line);
+void readInfo(Alumno *alumno, char *line);
 
-void readGrades(struct Alumno *alumno, char *line);
+void readGrades(Alumno *alumno, char *line);
 
 #endif
