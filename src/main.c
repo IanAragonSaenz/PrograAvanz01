@@ -34,13 +34,18 @@ int main(int argc, char **argv){
         break;
       case '?':
         if (optopt == 'o') //prints error when there is no value given to -o
-          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+          fprintf (stderr, "Opcion -%c requiere un argumento.\n", optopt);
         else // prints error when the option given doesnt exist
-          fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+          fprintf (stderr, "Opcion`-%c' no existe.\n", optopt);
       default:
         return 1;
      }
 
+  if(argc-optind != 2){
+  	printf("No todos los archivos necesarios fueron dados como argumento\n");
+  	return 1;
+  }
+  
   for (int index = optind; index < argc; index++){
     FILE *file;
     char *line;
