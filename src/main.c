@@ -48,7 +48,7 @@ int main(int argc, char **argv){
   
   for (int index = optind; index < argc; index++){
     FILE *file;
-    char *line;
+    char *line = NULL;
     int i = 0;
     
     file = fopen(argv[index], "r");
@@ -58,7 +58,7 @@ int main(int argc, char **argv){
     }
     
     while(!feof(file)){
-      fscanf(file, "%s", &line);
+      fscanf(file, "%s", line);
       
       if(i >= size){
       	size += 10;
