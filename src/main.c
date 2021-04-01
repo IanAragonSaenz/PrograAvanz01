@@ -8,6 +8,7 @@ int main(int argc, char **argv){
   int vflag = 0;
   char *ovalue = NULL;
   int c, size = 10;
+  int i = 0;
   Alumno *alumnos = malloc(size * sizeof(*alumnos));
 
   while ((c = getopt (argc, argv, "hvo:")) != -1)
@@ -48,7 +49,6 @@ int main(int argc, char **argv){
   
   for (int index = optind; index < argc; index++){
     FILE *file;
-    int i = 0;
     
     file = fopen(argv[index], "r");
     if(file == NULL){
@@ -64,18 +64,43 @@ int main(int argc, char **argv){
       
       if(index == optind){
     	fscanf(file, "%d %s %s %s %s %s", &alumnos[i].id, alumnos[i].nombre, alumnos[i].apellido, alumnos[i].carrera, alumnos[i].ciudad, alumnos[i].graduacion);
-	i++;
+		i++;
       } else {
-	int id = 0;
+		int id = 0;
       	fscanf(file, "%d", &id);
-	for(int j = 0; j < size; j++){
-	 if(alumnos[j].id == id){
-	  fscanf(file, "%d%d%d%d", &alumnos[j].A, &alumnos[j].B, &alumnos[j].C, &alumnos[j].D);
-	  break;
-	 }
-	}
+		for(int j = 0; j < size; j++){
+	 		if(alumnos[j].id == id){
+	  			fscanf(file, "%d%d%d%d", &alumnos[j].A, &alumnos[j].B, &alumnos[j].C, &alumnos[j].D);
+	  			break;
+	 		}
+		}
       }
      }
   }
+  
+  char *line = NULL;
+  size_t len = 0;
+  size_t readLen = 0;
+  int option = 0;
+  while(1){
+  	printMenu();
+  	scanf("%d", &option);
+  	switch(option){
+  		case 1:
+  			printf("ID\tNombre\n");
+  			for(int j = 0; j < i; j++){
+  				printf("%d\t%s %s", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido);
+  			}
+  			break;
+  		case 2:
+  			break;
+  		case 3:
+  			break;
+  		default: 
+  			printf("Opcion no especificada, se cerrara el programa\n");
+  			return 1;
+  	}
+  }
+  
   return 0;
 }

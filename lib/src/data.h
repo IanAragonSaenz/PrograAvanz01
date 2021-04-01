@@ -1,5 +1,6 @@
 #ifndef _DATA_H
 #define _DATA_H
+#include <stdio.h>
 
 typedef struct Alumno{
 	int id;
@@ -17,5 +18,7 @@ typedef struct Alumno{
 void readInfo(Alumno *alumno, char *line);
 
 void readGrades(Alumno *alumno, char *line);
+
+void printMenu();
 
 #endif
