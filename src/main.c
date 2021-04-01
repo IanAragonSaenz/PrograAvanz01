@@ -48,7 +48,6 @@ int main(int argc, char **argv){
   
   for (int index = optind; index < argc; index++){
     FILE *file;
-    char *line = NULL;
     int i = 0;
     
     file = fopen(argv[index], "r");
@@ -58,19 +57,24 @@ int main(int argc, char **argv){
     }
     
     while(!feof(file)){
-      fscanf(file, "%s", line);
-      
       if(i >= size){
       	size += 10;
       	alumnos = (Alumno *)realloc(alumnos, (size * sizeof(Alumno)));
       }
       
       if(index == optind){
-    	//readInfo(&alumnos[i], line);
+    	fscanf(file, "%d %s %s %s %s %s", &alumnos[i].id, alumnos[i].nombre, alumnos[i].apellido, alumnos[i].carrera, alumnos[i].ciudad, alumnos[i].graduacion);
+	i++;
       } else {
-      	//readGrades(&alumnos[i], line);
+	int id = 0;
+      	fscanf(file, "%d", &id);
+	for(int j = 0; j < size; j++){
+	 if(alumnos[j].id == id){
+	  fscanf(file, "%d%d%d%d", &alumnos[j].A, &alumnos[j].B, &alumnos[j].C, &alumnos[j].D);
+	  break;
+	 }
+	}
       }
-      i++;
      }
   }
   return 0;
