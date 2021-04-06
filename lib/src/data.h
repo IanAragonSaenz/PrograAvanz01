@@ -21,4 +21,6 @@ void readGrades(Alumno *alumno, char *line);
 
 void printMenu();
 
+void printHelp();
+
 #endif
