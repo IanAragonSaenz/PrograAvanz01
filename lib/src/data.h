@@ -1,6 +1,7 @@
 #ifndef _DATA_H
 #define _DATA_H
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Alumno{
 	int id;
