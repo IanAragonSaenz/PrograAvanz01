@@ -1,8 +1,6 @@
 #include "../lib/src/data.h"
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 int main(int argc, char **argv){
   int vflag = 0;
@@ -15,17 +13,7 @@ int main(int argc, char **argv){
     switch (c)
       {
       case 'h':
-        printf("Este programa lee varios archivos con la informacion de estudiantes y permite el uso de queries estructurados.\n");
-        printf("Algunas opciones a usar:\n");
-        printf("-h\t\tImprime la guia de ayuda\n");
-        printf("-v\t\tMuestra como se van ejecutando varias partes del programa\n");
-        printf("-o\t\tImprime los resultados en un archivo dado como argumento\n");
-        printf("Ejemplos de uso:\n");
-        printf("./programa -h\n");
-        printf("./programa archivo1.txt archivo2.txt\n");
-        printf("./programa archivo1.txt -v archivo2.txt\n");
-        printf("./programa archivo1.txt -h archivo2.txt\n");
-        printf("./programa archivo1.txt -o salida.txt archivo2.txt\n");
+        printHelp();
         return 0;
       case 'v':
         vflag = 1;
@@ -78,23 +66,53 @@ int main(int argc, char **argv){
      }
   }
   
-  char *line = NULL;
-  size_t len = 0;
-  size_t readLen = 0;
   int option = 0;
+  
   while(1){
   	printMenu();
   	scanf("%d", &option);
+  	char line[80];
+  	char *newLine;
+  	char* consulta[4];
+  	int consulta_i = 0;
+  	
   	switch(option){
+  		case 0:
+  			printf("El programa ha terminado\n");
+  			return 0;
   		case 1:
   			printf("ID\tNombre\n");
-  			for(int j = 0; j < i; j++){
-  				printf("%d\t%s %s", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido);
+  			for(int j = 0; j < i-1; j++){
+  				printf("%d\t%s %s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido);
   			}
   			break;
   		case 2:
+  			printf("ID\tNombre\tCarrera\tCiudad\tGraduacion Aprox\n");
+  			for(int j = 0; j < i-1; j++){
+  				printf("%d\t%s %s\t%s\t%s\t%s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].carrera, alumnos[j].ciudad, alumnos[j].graduacion);
+  			}
   			break;
   		case 3:
+  			printf("ID\tNombre\tMateria A\tMateria B\tMateria C\tMateria D\n");
+  			for(int j = 0; j < i-1; j++){
+  				printf("%d\t%s %s\t%d\t%d\t%d\t%d\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].A, alumnos[j].B, alumnos[j].C, alumnos[j].D);
+  			}
+  			break;
+  		case 4:
+  			printf("Introduzca su consulta: \n");
+  			fflush(stdin);
+  			fflush(stdout);
+  			while ( (c = getchar()) != '\n' && c != EOF ) { }
+  			fgets(line, 80, stdin);
+  			newLine = strtok(line, " ");
+  			while(newLine != NULL){
+  				consulta[consulta_i++] = newLine;
+  				newLine = strtok(NULL, " ");
+  			}
+  			for(int j = 0; j < consulta_i; j++){
+  				printf("%d\t%s\n", j, consulta[j]);
+  			}
+  			
   			break;
   		default: 
   			printf("Opcion no especificada, se cerrara el programa\n");
