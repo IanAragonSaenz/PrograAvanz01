@@ -44,6 +44,10 @@ int main(int argc, char **argv){
     	return 1;
     }
     
+    if(vflag == 1){
+		printf("leyendo datos de archivos\n");
+    }
+      
     while(!feof(file)){
       if(i >= size){
       	size += 10;
@@ -67,7 +71,9 @@ int main(int argc, char **argv){
   }
   
   int option = 0;
-  
+  if(vflag == 1){
+     printf("Entrando al menu\n");
+  }
   while(1){
   	printMenu();
   	scanf("%d", &option);
@@ -75,6 +81,10 @@ int main(int argc, char **argv){
   	char *newLine;
   	char* consulta[4];
   	int consulta_i = 0;
+  	
+  	if(vflag == 1){
+     	printf("Procesando la opcion\n");
+  	}
   	
   	switch(option){
   		case 0:
@@ -112,6 +122,11 @@ int main(int argc, char **argv){
   			for(int j = 0; j < consulta_i; j++){
   				printf("%d\t%s\n", j, consulta[j]);
   			}
+  			
+  			if(vflag == 1){
+     			printf("Procesando la consulta\n");
+  			}
+  			consultaQ(consulta, consulta_i, alumnos, i, vflag, ovalue);
   			
   			break;
   		default: 
