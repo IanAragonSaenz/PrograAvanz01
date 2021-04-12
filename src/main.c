@@ -117,16 +117,18 @@ int main(int argc, char **argv){
   			newLine = strtok(line, " ");
   			while(newLine != NULL){
   				consulta[consulta_i++] = newLine;
-  				newLine = strtok(NULL, " ");
+  				newLine = strtok(NULL, " \n");
   			}
+  			/*
   			for(int j = 0; j < consulta_i; j++){
-  				printf("%d\t%s\n", j, consulta[j]);
+  				printf("%d\t%s\t%d\n", j, consulta[j], i);
   			}
-  			
+  			*/
   			if(vflag == 1){
      			printf("Procesando la consulta\n");
   			}
-  			consultaQ(consulta, consulta_i, alumnos, i, vflag, ovalue);
+  			
+  			consultaQ(consulta, consulta_i, alumnos, i-1, vflag, ovalue);
   			
   			break;
   		default: 
