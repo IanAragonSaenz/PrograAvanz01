@@ -24,4 +24,10 @@ void printMenu();
 
 void printHelp();
 
+void consultaQ(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
+
+void kardex(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
+
+void fechaGraduacion(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
+
 #endif
