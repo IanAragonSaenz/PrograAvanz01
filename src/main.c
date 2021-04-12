@@ -62,7 +62,7 @@ int main(int argc, char **argv){
       	fscanf(file, "%d", &id);
 		for(int j = 0; j < size; j++){
 	 		if(alumnos[j].id == id){
-	  			fscanf(file, "%d%d%d%d", &alumnos[j].A, &alumnos[j].B, &alumnos[j].C, &alumnos[j].D);
+	  			fscanf(file, "%f%f%f%f", &alumnos[j].A, &alumnos[j].B, &alumnos[j].C, &alumnos[j].D);
 	  			break;
 	 		}
 		}
@@ -97,15 +97,15 @@ int main(int argc, char **argv){
   			}
   			break;
   		case 2:
-  			printf("ID\tNombre\tCarrera\tCiudad\tGraduacion Aprox\n");
+  			printf("ID\tNombre            \tCarrera\tCiudad\tGraduacion Aprox\n");
   			for(int j = 0; j < i-1; j++){
-  				printf("%d\t%s %s\t%s\t%s\t%s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].carrera, alumnos[j].ciudad, alumnos[j].graduacion);
+  				printf("%d\t%s %-13s\t%-7s\t%-6s\t%-16s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].carrera, alumnos[j].ciudad, alumnos[j].graduacion);
   			}
   			break;
   		case 3:
-  			printf("ID\tNombre\tMateria A\tMateria B\tMateria C\tMateria D\n");
+  			printf("ID\tNombre            \tMateria A\tMateria B\tMateria C\tMateria D\n");
   			for(int j = 0; j < i-1; j++){
-  				printf("%d\t%s %s\t%d\t%d\t%d\t%d\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].A, alumnos[j].B, alumnos[j].C, alumnos[j].D);
+  				printf("%d\t%s %-13s\t%-9.2f\t%-9.2f\t%-9.2f\t%-9.2f\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].A, alumnos[j].B, alumnos[j].C, alumnos[j].D);
   			}
   			break;
   		case 4:
@@ -119,11 +119,7 @@ int main(int argc, char **argv){
   				consulta[consulta_i++] = newLine;
   				newLine = strtok(NULL, " \n");
   			}
-  			/*
-  			for(int j = 0; j < consulta_i; j++){
-  				printf("%d\t%s\t%d\n", j, consulta[j], i);
-  			}
-  			*/
+  			
   			if(vflag == 1){
      			printf("Procesando la consulta\n");
   			}
