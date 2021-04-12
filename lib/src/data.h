@@ -2,6 +2,7 @@
 #define _DATA_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Alumno{
 	int id;
@@ -29,5 +30,9 @@ void consultaQ(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag,
 void kardex(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
 
 void fechaGraduacion(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
+
+void numeroAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
+
+void nombreAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue);
 
 #endif
