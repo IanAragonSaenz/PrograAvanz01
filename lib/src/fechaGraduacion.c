@@ -28,12 +28,12 @@ void fechaGraduacion(char *argv[], int argc, Alumno alumnos[], int alumnoC, int 
 		printf("Buscando la fecha estimada de graduacion del alumno con id: %d\n", num);
 	}
 	
-	printf("ID\tNombre\tGraduacion\n");
+	printf("ID\tNombre          \tGraduacion\n");
 	for(int j = 0; j < alumnoC; j++){
 		if(alumnos[j].id == num){
-			printf("%d\t%s %s\t%s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].graduacion);
+			printf("%d\t%s %-16s\t%-10s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].graduacion);
 			if(ovalue != NULL){
-				fprintf(fp, "%d\t%s %s\t%s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].graduacion);
+				fprintf(fp, "%d\t%s %-16s\t%-10s\n", alumnos[j].id, alumnos[j].nombre, alumnos[j].apellido, alumnos[j].graduacion);
 				fclose(fp);
 			}
 			return;
