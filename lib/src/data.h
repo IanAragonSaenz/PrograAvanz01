@@ -11,10 +11,10 @@ typedef struct Alumno{
 	char carrera[15];
 	char ciudad[15];
 	char graduacion[15];
-	int A;
-	int B;
-	int C;
-	int D;
+	float A;
+	float B;
+	float C;
+	float D;
 } Alumno;
 
 void readInfo(Alumno *alumno, char *line);

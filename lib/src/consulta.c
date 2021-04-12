@@ -1,6 +1,7 @@
 #include "data.h"
 
 void consultaQ(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag, char *ovalue){
+
 	if(argc < 2){
 		printf("La consulta no tiene suficientes datos, vuelva a intentar\n");
 		return;
@@ -13,7 +14,7 @@ void consultaQ(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vflag,
 	} else if(!strcmp(argv[0], "Numero_alumnos")){
 		numeroAlumnos(argv, argc, alumnos, alumnoC, vflag, ovalue);
 	} else if(!strcmp(argv[0], "Nombre_alumnos")){
-	
+		nombreAlumnos(argv, argc, alumnos, alumnoC, vflag, ovalue);
 	} else {
 		exit(1);
 	}
