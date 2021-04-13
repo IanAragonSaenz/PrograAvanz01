@@ -44,7 +44,7 @@ void nombreAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vf
 			return;
 		}
 		
-		int num = atoi(argv[2]);
+		float num = atof(argv[2]);
 		
 		printf("ID\tNombre\n");
 		for(int j = 0; j < alumnoC; j++){
@@ -65,7 +65,7 @@ void nombreAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vf
 			return;
 		}
 		
-		int num = atoi(argv[2]);
+		float num = atof(argv[2]);
 		
 		printf("ID\tNombre\n");
 		for(int j = 0; j < alumnoC; j++){
@@ -86,7 +86,7 @@ void nombreAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vf
 			return;
 		}
 		
-		int num = atoi(argv[2]);
+		float num = atof(argv[2]);
 		
 		printf("ID\tNombre\n");
 		for(int j = 0; j < alumnoC; j++){
@@ -107,7 +107,7 @@ void nombreAlumnos(char *argv[], int argc, Alumno alumnos[], int alumnoC, int vf
 			return;
 		}
 		
-		int num = atoi(argv[2]);
+		float num = atof(argv[2]);
 		
 		printf("ID\tNombre\n");
 		for(int j = 0; j < alumnoC; j++){
