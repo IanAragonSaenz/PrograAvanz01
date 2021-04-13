@@ -1,7 +1,6 @@
 
 main: ../src/main.c ../lib/src/data.h
 	gcc -fPIC -c ../lib/src/consulta.c -o ../lib/dinamica/consulta.o
-	gcc -fPIC -c ../lib/src/data.c -o ../lib/dinamica/data.o
 	gcc -fPIC -c ../lib/src/menu.c -o ../lib/dinamica/menu.o
 	gcc -fPIC -c ../lib/src/kardex.c -o ../lib/dinamica/kardex.o
 	gcc -fPIC -c ../lib/src/fechaGraduacion.c -o ../lib/dinamica/fechaGraduacion.o
